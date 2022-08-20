@@ -9,6 +9,8 @@ services:
     ports:
       - 80:80
       - 443:443
+    environment:   
+      - VIRTUAL_HOST=appsusy.ddns.net
     volumes:
       - /volumes/nginx/certs:/etc/nginx/certs:ro
       - /volumes/nginx/vhostd:/etc/nginx/vhost.d
@@ -19,8 +21,8 @@ services:
     image: nginx
     container_name: Portal
     restart: always
-    environment:   
-      - VIRTUAL_HOST=portalsusy.ddns.net
+   # environment:   
+    #  - VIRTUAL_HOST=portalsusy.ddns.net
     volumes:
       - /volumes/www/portal:/usr/share/nginx/html:ro
 
@@ -28,8 +30,8 @@ services:
     image: nginx
     container_name: Factura
     restart: always
-    environment:   
-      - VIRTUAL_HOST=facturasusy.ddns.net
+    #environment:   
+    #  - VIRTUAL_HOST=facturasusy.ddns.net
     volumes:
       - /volumes/www/factura:/usr/share/nginx/html:ro
 
@@ -37,7 +39,7 @@ services:
     image: httpd
     container_name: ERP
     restart: always
-    environment:
-      - VIRTUAL_HOST=erpsusy.ddns.net
+   # environment:
+    #  - VIRTUAL_HOST=erpsusy.ddns.net
     volumes:
       - /volumes/www/erp:/usr/local/apache2/htdocs
